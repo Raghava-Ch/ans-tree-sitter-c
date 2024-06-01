@@ -120,6 +120,10 @@
     "named": true,
     "subtypes": [
       {
+        "type": "address_of_expression",
+        "named": true
+      },
+      {
         "type": "alignof_expression",
         "named": true
       },
@@ -441,6 +445,32 @@
     }
   },
   {
+    "type": "address_of_expression",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "&",
+            "named": false
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "alignas_qualifier",
     "named": true,
     "fields": {},
@@ -554,6 +584,10 @@
         "multiple": false,
         "required": true,
         "types": [
+          {
+            "type": "address_of_expression",
+            "named": true
+          },
           {
             "type": "call_expression",
             "named": true
@@ -2616,10 +2650,6 @@
         "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "&",
-            "named": false
-          },
           {
             "type": "*",
             "named": false

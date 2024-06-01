@@ -633,7 +633,7 @@ int main() {
         (call_expression
           (identifier)
           (argument_list
-            (pointer_expression
+            (address_of_expression
               (identifier))
             (pointer_expression
               (identifier))))))))

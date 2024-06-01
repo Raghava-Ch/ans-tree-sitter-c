@@ -6539,6 +6539,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "address_of_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "sizeof_expression"
         },
         {
@@ -6737,6 +6741,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "address_of_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "subscript_expression"
         },
         {
@@ -6833,17 +6841,33 @@
             "type": "FIELD",
             "name": "operator",
             "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "*"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&"
-                }
-              ]
+              "type": "STRING",
+              "value": "*"
+            }
+          },
+          {
+            "type": "FIELD",
+            "name": "argument",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          }
+        ]
+      }
+    },
+    "address_of_expression": {
+      "type": "PREC_LEFT",
+      "value": 12,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "operator",
+            "content": {
+              "type": "STRING",
+              "value": "&"
             }
           },
           {
@@ -9678,5 +9702,29 @@
     "_field_declarator",
     "_type_declarator",
     "_abstract_declarator"
-  ]
+  ],
+  "PREC": {
+    "PAREN_DECLARATOR": -10,
+    "ASSIGNMENT": -2,
+    "CONDITIONAL": -1,
+    "DEFAULT": 0,
+    "LOGICAL_OR": 1,
+    "LOGICAL_AND": 2,
+    "INCLUSIVE_OR": 3,
+    "EXCLUSIVE_OR": 4,
+    "BITWISE_AND": 5,
+    "EQUAL": 6,
+    "RELATIONAL": 7,
+    "OFFSETOF": 8,
+    "SHIFT": 9,
+    "ADD": 10,
+    "MULTIPLY": 11,
+    "CAST": 12,
+    "SIZEOF": 13,
+    "UNARY": 14,
+    "CALL": 15,
+    "FIELD": 16,
+    "SUBSCRIPT": 17
+  }
 }
+

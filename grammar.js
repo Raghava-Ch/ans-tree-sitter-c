@@ -948,6 +948,7 @@ module.exports = grammar({
       $.update_expression,
       $.cast_expression,
       $.pointer_expression,
+      $.address_of_expression,
       $.sizeof_expression,
       $.alignof_expression,
       $.offsetof_expression,
@@ -991,6 +992,7 @@ module.exports = grammar({
       $.call_expression,
       $.field_expression,
       $.pointer_expression,
+      $.address_of_expression,
       $.subscript_expression,
       $.parenthesized_expression,
     ),
@@ -1014,7 +1016,12 @@ module.exports = grammar({
     )),
 
     pointer_expression: $ => prec.left(PREC.CAST, seq(
-      field('operator', choice('*', '&')),
+      field('operator', '*'),
+      field('argument', $.expression),
+    )),
+
+    address_of_expression: $ => prec.left(PREC.CAST, seq(
+      field('operator', '&'),
       field('argument', $.expression),
     )),
 
