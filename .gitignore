@@ -35,3 +35,6 @@ dist/
 *.wasm
 *.obj
 *.o
+
+# Mac cache files
+.DS_Store
